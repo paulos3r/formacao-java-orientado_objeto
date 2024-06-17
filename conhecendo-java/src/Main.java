@@ -29,8 +29,6 @@ public class Main {
                                         Nota do filme: %.2f
                                         """, nome, anoDeLancamento, sinopse,media );
     System.out.println(dadosDoFilme);
-
-
     System.out.println(anoDeLancamento + sinopse);
   }
 }
