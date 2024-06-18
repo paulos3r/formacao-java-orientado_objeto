@@ -1,12 +1,13 @@
+import br.com.paulos3r.screenmatch.modelo.Filme;
+
 public class Principal {
   public static void main(String[] args) {
 
     Filme filme = new Filme();  // referencia, direita cria espaco na memoria / esquerda guarda a informacao
 
-    filme.nome = "O poderoso chefao";
-    filme.anoDeLancamento = 1972;
-    filme.duracaoEmMinutos = 175;
-    filme.incluidoNoPlano = true;
+    filme.setNome("O poderoso chefao");
+    filme.setAnoDeLancamento(1972);
+    filme.setDuracaoEmMinutos(175);
 
     filme.exibeFichaTecnica();
     filme.avalia(9);
