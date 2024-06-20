@@ -1,4 +1,6 @@
 import br.com.paulos3r.screenmatch.calculadora.CalculadoraTempo;
+import br.com.paulos3r.screenmatch.calculadora.FiltroRecomendacao;
+import br.com.paulos3r.screenmatch.modelo.Episodio;
 import br.com.paulos3r.screenmatch.modelo.Filme;
 import br.com.paulos3r.screenmatch.modelo.Serie;
 
@@ -36,5 +38,14 @@ public class Principal {
 
     System.out.println( "Quantos mimutos de filme da esses dois filmes: " + caluladora.getTempoTotal() + "Minutos");
 
+    FiltroRecomendacao filtro = new FiltroRecomendacao();
+
+    filtro.filtra(filme);
+
+    Episodio episodio = new Episodio();
+
+    episodio.setNumero(1);
+    episodio.setSerie(serie);
+    episodio.setNome(serie.getNome());
   }
 }
