@@ -11,10 +11,8 @@ import java.util.ArrayList;
 public class Principal {
   public static void main(String[] args) {
 
-    Filme filme = new Filme();  // referencia, direita cria espaco na memoria / esquerda guarda a informacao
+    Filme filme = new Filme("O poderoso chefao",1972);  // referencia, direita cria espaco na memoria / esquerda guarda a informacao
 
-    filme.setNome("O poderoso chefao");
-    filme.setAnoDeLancamento(1972);
     filme.setDuracaoEmMinutos(175);
     filme.setDiretor("Francis Ford Coppola");
 
@@ -37,10 +35,8 @@ public class Principal {
 
     System.out.println( filme.exibeFichaTecnica());
 
-    Serie serie = new Serie();
+    Serie serie = new Serie("A Casa do Dragão",2022);
 
-    serie.setNome("A Casa do Dragão");
-    serie.setAnoDeLancamento(2022);
     serie.setDuracaoEmMinutos(40);
     serie.setTemporadas(1);
     serie.setAtiva(false);
@@ -59,5 +55,7 @@ public class Principal {
     episodio.setNumero(1);
     episodio.setSerie(serie);
     episodio.setNome(serie.getNome());
+
+    System.out.println(episodio);
   }
 }

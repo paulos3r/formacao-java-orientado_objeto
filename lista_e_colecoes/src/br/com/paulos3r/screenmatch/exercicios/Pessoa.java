@@ -1,4 +1,4 @@
-package br.com.paulos3r.screenmatch.modelo;
+package br.com.paulos3r.screenmatch.exercicios;
 
 public class Pessoa {
   private String nome;
