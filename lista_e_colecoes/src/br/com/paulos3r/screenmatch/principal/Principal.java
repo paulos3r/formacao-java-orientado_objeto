@@ -1,4 +1,4 @@
-package br.com.paulos3r.screenmatch;
+package br.com.paulos3r.screenmatch.principal;
 
 import br.com.paulos3r.screenmatch.calculadora.CalculadoraTempo;
 import br.com.paulos3r.screenmatch.calculadora.FiltroRecomendacao;

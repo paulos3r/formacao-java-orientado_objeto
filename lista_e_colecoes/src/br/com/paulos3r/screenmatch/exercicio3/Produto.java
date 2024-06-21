@@ -1,14 +1,12 @@
-package br.com.paulos3r.screenmatch.exercicio2;
+package br.com.paulos3r.screenmatch.exercicio3;
 
 public class Produto {
   private String nome;
   private double preco;
-  private int quantidade;
 
-  public Produto(String nome, double preco, int quantidade) {
+  public Produto(String nome, double preco) {
     this.nome = nome;
     this.preco = preco;
-    this.quantidade = quantidade;
   }
 
   public String getNome() {
@@ -19,19 +17,15 @@ public class Produto {
     return preco;
   }
 
-  public int getQuantidade() {
-    return quantidade;
-  }
-
   public void setPreco(double preco) {
     this.preco = preco;
   }
 
   @Override
   public String toString() {
-    return "Produto: " +
+    return "Produto" +
             "nome='" + nome + '\'' +
             ", preco=" + preco +
-            ", quantidade=" + quantidade + '\n';
+            '\n';
   }
 }

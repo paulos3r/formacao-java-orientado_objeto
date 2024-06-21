@@ -14,6 +14,8 @@ public class Principal {
     produtos.add(produto1);
 
     Produto produto2 = new Produto("Carne", 22.19,6 );
+    Produto produto3 = produto2;  // aqui eu tenho uma refeencia do produto2, caso alterar algo altera no produto2
+    produto3.setPreco(25.38);
     produtos.add(produto2);
 
     System.out.println(produtos.toString());
