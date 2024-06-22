@@ -57,5 +57,6 @@ public class Principal {
     episodio.setNome(serie.getNome());
 
     System.out.println(episodio);
+
   }
 }

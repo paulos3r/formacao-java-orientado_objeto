@@ -21,4 +21,5 @@ public class Filme extends Titulo implements Classificavel {
   public int getClassificacao() {
     return (int) mediaDasAvaliacoes() /2;
   }
+
 }

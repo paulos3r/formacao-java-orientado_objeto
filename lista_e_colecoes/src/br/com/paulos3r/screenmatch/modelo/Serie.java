@@ -46,15 +46,4 @@ public class Serie extends Titulo{
   public int getDuracaoEmMinutos() {
     return temporadas * episodiosPorTemporada * minutosPorTemporada;
   }
-
-  @Override
-  public String exibeFichaTecnica() {
-    return String.format("""
-            Nome : %s
-            Ano de lancamento: %d
-            Total de Avaliacao: %.2f
-            Duracao do filme: %d Minutos
-            Episodios: %d
-            """, getNome(), getAnoDeLancamento(), mediaDasAvaliacoes(),getDuracaoEmMinutos(), getEpisodiosPorTemporada());
-  }
 }

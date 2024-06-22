@@ -1,6 +1,6 @@
 package br.com.paulos3r.screenmatch.modelo;
 
-public class Titulo {
+public class Titulo implements Comparable<Titulo> {
   private String nome;
   private int anoDeLancamento;
   private boolean incluidoNoPlano;
@@ -61,5 +61,35 @@ public class Titulo {
 
   public double mediaDasAvaliacoes(){
     return this.somaAvaliacoes / this.totalDeAvaliacoes;
+  }
+
+  @Override
+  public int compareTo(Titulo titulo) {
+    return this.getNome().compareTo(titulo.getNome());
+  }
+
+  /*
+  * FORMA DE COMPARAR DECRESCENTE
+  @Override
+  public int compareTo(Conta outra) {
+      if (this.getSaldo() < outra.getSaldo()) {
+          return 1;
+      } else if (this.getSaldo() > outra.getSaldo()) {
+          return -1;
+      } else {
+          return 0;
+      }
+  }*/
+
+  @Override
+  public String toString() {
+    return "Titulo{" +
+            "nome='" + nome + '\'' +
+            ", anoDeLancamento=" + anoDeLancamento +
+            ", incluidoNoPlano=" + incluidoNoPlano +
+            ", somaAvaliacoes=" + somaAvaliacoes +
+            ", totalDeAvaliacoes=" + totalDeAvaliacoes +
+            ", duracaoEmMinutos=" + duracaoEmMinutos +
+            '}';
   }
 }
