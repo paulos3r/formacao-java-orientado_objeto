@@ -1,5 +1,6 @@
 package br.com.paulos3r.screenmatch.principal;
 
+import br.com.paulos3r.screenmatch.excecao.ErrorDeConversaoException;
 import br.com.paulos3r.screenmatch.modelo.Titulo;
 import br.com.paulos3r.screenmatch.modelo.TituloOMDB;
 import com.google.gson.FieldNamingPolicy;
@@ -21,7 +22,7 @@ public class PrincipalApi {
     System.out.println("Informe um filme");
     String busca = scan.nextLine();
 
-    String endereco = "https://www.omdbapi.com/?t=" + busca + "&apikey=1801fb5f";
+    String endereco = "https://www.omdbapi.com/?t=" + busca.replace(" ","+") + "&apikey=1801fb5f";
 
     HttpClient client = HttpClient.newHttpClient();
 
@@ -45,6 +46,17 @@ public class PrincipalApi {
 
     System.out.println(tituloOMDB);
 
-    Titulo titulo = new Titulo(tituloOMDB);
+    try {
+      Titulo titulo = new Titulo(tituloOMDB);
+      System.out.println(titulo);
+    }catch (NumberFormatException e){
+      System.out.println("Erro na conversao");
+      System.out.println(e.getMessage());
+    }catch (IllegalArgumentException e){
+      System.out.println("Argumento invalido, verifica o endereco na busca");
+      System.out.println(e.getMessage());
+    }catch (ErrorDeConversaoException e){
+      System.out.println(e.getMessage());
+    }
   }
 }

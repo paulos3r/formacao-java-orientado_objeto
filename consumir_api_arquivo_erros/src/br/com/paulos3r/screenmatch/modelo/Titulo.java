@@ -1,15 +1,12 @@
 package br.com.paulos3r.screenmatch.modelo;
 
+import br.com.paulos3r.screenmatch.excecao.ErrorDeConversaoException;
 import com.google.gson.annotations.SerializedName;
 
 public class Titulo implements Comparable<Titulo> {
 
-  @SerializedName("Title")
   private String nome;
-
-  @SerializedName("Year")
   private int anoDeLancamento;
-
   private boolean incluidoNoPlano;
   private double somaAvaliacoes;
   private int totalDeAvaliacoes;
@@ -22,6 +19,9 @@ public class Titulo implements Comparable<Titulo> {
 
   public Titulo(TituloOMDB tituloOMDB) {
     this.nome = tituloOMDB.title();
+    if( tituloOMDB.year().length() > 4 ){
+      throw  new ErrorDeConversaoException("Nao consegue converter o ano pois tem mais de 4 caracteres");
+    }
     this.anoDeLancamento = Integer.valueOf(tituloOMDB.year());
     this.duracaoEmMinutos = Integer.valueOf(tituloOMDB.runtime().substring(0,2));
   }
