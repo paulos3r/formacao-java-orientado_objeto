@@ -1,13 +1,13 @@
 package br.com.paulos3r.screenmatch.principal;
 
 import br.com.paulos3r.screenmatch.excecao.ErrorDeConversaoException;
+import br.com.paulos3r.screenmatch.modelo.FilmeApi;
 import br.com.paulos3r.screenmatch.modelo.Titulo;
 import br.com.paulos3r.screenmatch.modelo.TituloOMDB;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URI;
@@ -30,22 +30,8 @@ public class PrincipalApi {
             .setPrettyPrinting()
             .create();
 
-//    try {
-//      File file = new File("d:\\ALURA\\arquivo.json");
-//      file.createNewFile();
-//
-//      while (scan.hasNextLine()) { // hasNextLine() verifica se tem alguma linha para ler
-//        String linha = scan.nextLine();
-//        System.out.println(linha);
-//      }
-//      scan.close();
-//    }catch (IOException e){
-//      System.out.println("Arquivo nao encontrado");
-//      e.getMessage();
-//      e.printStackTrace();
-//    }
-
     while (!busca.equalsIgnoreCase("sair")) {
+
       System.out.println("Informe um filme");
       busca = scan.nextLine();
 
@@ -53,12 +39,13 @@ public class PrincipalApi {
         break;
       }
 
-      String endereco = "https://www.omdbapi.com/?t=" + busca.replace(" ","+") + "&apikey=1801fb5f";
+      FilmeApi api = new FilmeApi(busca);
+
       try {
         HttpClient client = HttpClient.newHttpClient();
 
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create( endereco ))
+                .uri(URI.create( api.getBusca() ))
                 .build();
 
         HttpResponse<String> response = client
